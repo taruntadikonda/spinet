@@ -1,0 +1,142 @@
+int trig = 2;
+int echo = 3;
+int pin = 9;
+int trig1 = 4;
+int echo1 = 5;
+int pin1= 10;
+void setup()
+{
+Serial.begin(9600);
+pinMode(trig, OUTPUT);
+pinMode(echo, INPUT);
+pinMode(pin, OUTPUT);
+Serial.begin(9600);
+pinMode(trig1, OUTPUT);
+pinMode(echo1, INPUT);
+pinMode(pin1, OUTPUT);
+}
+void loop()
+{
+int duration , distance;
+digitalWrite(trig, HIGH);
+delayMicroseconds(10);
+digitalWrite(trig, LOW);
+duration = pulseIn(echo, HIGH);
+distance = (duration / 2) / 21.9;
+Serial.print(distance);
+Serial.print("cm");
+delay(50);
+int duration1 , distance1;
+digitalWrite(trig1, HIGH);
+delayMicroseconds(10);
+digitalWrite(trig1, LOW);
+duration1 = pulseIn(echo1, HIGH);
+distance1 = (duration1 / 2) / 21.9;
+Serial.print(distance1);
+Serial.print("cm");
+delay(50);
+if (distance < 3)
+{
+tone(pin, 349.23);
+}
+else if ((3 < distance) && (distance < 6))
+{
+tone(pin, 369.99);
+}
+else if ((6< distance) && (distance < 9))
+{
+tone(pin, 392);
+}
+else if ((9 < distance) && (distance < 12))
+{
+tone(pin, 415.3);
+}
+else if ((12 < distance) && (distance < 15))
+{
+tone(pin, 440);
+}
+else if ((15 < distance) && (distance < 18))
+{
+tone(pin, 466.16);
+}
+else if ((18 < distance) && (distance < 21))
+{
+tone(pin, 493.88);
+}
+else if ((21 < distance) && (distance < 24))
+{
+tone(pin, 523.25);
+}
+else if ((24 < distance) && (distance < 27))
+{
+tone(pin, 554.37);
+}
+else if ((27 < distance) && (distance < 30))
+{
+tone(pin, 587.33);
+}
+else if ((30 < distance) && (distance < 33))
+{
+tone(pin, 622.25);
+}
+else if ((33 < distance) && (distance < 36))
+{
+tone(pin, 659.26);
+}
+else
+{
+noTone(pin);
+}
+if (distance1 < 3)
+{
+tone(pin1, 1318.5);
+}
+else if ((3 < distance1) && (distance1 < 6))
+{
+tone(pin1, 1244.5);
+}
+else if ((6< distance1) && (distance1 < 9))
+{
+tone(pin1, 1174.7);
+}
+else if ((9 < distance1) && (distance1 < 12))
+{
+tone(pin1, 1108.7);
+}
+else if ((12 < distance1) && (distance1 < 15))
+{
+tone(pin1, 1046.5);
+}
+else if ((15 < distance1) && (distance1 < 18))
+{
+tone(pin1, 987.77);
+}
+else if ((18 < distance1) && (distance1 < 21))
+{
+tone(pin1, 932.33);
+}
+else if ((21 < distance1) && (distance1 < 24))
+{
+tone(pin1, 880);
+}
+else if ((24 < distance1) && (distance1 < 27))
+{
+tone(pin1, 830.61);
+}
+else if ((27 < distance1) && (distance1 < 30))
+{
+tone(pin1, 783.99);
+}
+else if ((30 < distance1) && (distance1 < 33))
+{
+tone(pin1, 739.99);
+}
+else if ((33 < distance1) && (distance1 < 36))
+{
+tone(pin1, 698.46);
+}
+else
+{
+noTone(pin1);
+}
+}
